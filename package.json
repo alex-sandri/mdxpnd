@@ -1,0 +1,30 @@
+{
+  "name": "mdxpnd",
+  "version": "1.0.0",
+  "description": "A utility to merge all markdown pages linked from the table of contents.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alex-sandri/mdxpnd.git"
+  },
+  "keywords": [
+    "markdown"
+  ],
+  "author": {
+    "name": "Alex Sandri",
+    "email": "me@alexsandri.com",
+    "url": "https://alexsandri.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alex-sandri/mdxpnd/issues"
+  },
+  "homepage": "https://github.com/alex-sandri/mdxpnd#readme",
+  "dependencies": {
+    "marked": "^7.0.4"
+  }
+}
