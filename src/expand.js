@@ -1,14 +1,16 @@
+import path from 'path';
 import { marked } from 'marked';
-
 import { readFile } from './read-file.js';
 
 /**
  * @param {import('marked').TokensList} tokens
- * @param {string} fileName
+ * @param {string} filePath
  * 
  * @returns {Promise<string>}
  */
-export const expand = async (tokens, fileName) => {
+export const expand = async (tokens, filePath) => {
+  const fileName = path.basename(filePath);
+
   console.info(`expanding '${fileName}'.`);
 
   /**
@@ -61,7 +63,10 @@ export const expand = async (tokens, fileName) => {
     }
 
     for (const link of links) {
-      const file = await readFile({ in: link }, false);
+      const file = await readFile({
+        in: link,
+        relativeTo: path.dirname(filePath)
+      }, false);
 
       if (file === null) {
         continue;

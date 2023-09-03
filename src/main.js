@@ -1,6 +1,4 @@
 import fs from 'fs/promises';
-import path from 'path';
-
 import { expand } from './expand.js';
 import { readFile } from './read-file.js';
 
@@ -16,7 +14,7 @@ export const main = async (options) => {
     return;
   }
 
-  const result = await expand(tokens, path.basename(options.in));
+  const result = await expand(tokens, options.in);
 
   await fs.writeFile(options.out, result, options.encoding);
 

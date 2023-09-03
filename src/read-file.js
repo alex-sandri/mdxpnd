@@ -1,8 +1,9 @@
 import fs from 'fs/promises';
+import path from 'path';
 import { marked } from 'marked';
 
 /**
- * @param {{ in: string; encoding?: string }} options
+ * @param {{ in: string; relativeTo?: string; encoding?: string }} options
  * @param {boolean} lexer
  * 
  * @returns {Promise<import('marked').TokensList | null>}
@@ -14,9 +15,10 @@ export const readFile = async (options, lexer) => {
   let file = null;
 
   try {
-    file = await fs.readFile(options.in);
+    const filePath = path.resolve(options.relativeTo ?? '.', options.in);
+    file = await fs.readFile(filePath);
   } catch {
-    console.error(`could not access file '${options.in}'.`);
+    console.error(`could not access file '${options.in}' in ${options.relativeTo}.`);
 
     return null;
   }
