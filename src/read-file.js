@@ -6,7 +6,7 @@ import { marked } from 'marked';
  * @param {{ in: string; relativeTo?: string; encoding?: string }} options
  * @param {boolean} lexer
  * 
- * @returns {Promise<import('marked').TokensList | null>}
+ * @returns {Promise<import('marked').TokensList | string | null>}
  */
 export const readFile = async (options, lexer) => {
   /**
