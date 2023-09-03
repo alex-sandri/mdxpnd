@@ -74,7 +74,7 @@ export const expand = async (tokens, filePath) => {
 
       console.info(`expanded '${link}' into '${fileName}'.`);
 
-      outputParts.push(file);
+      outputParts.push('\n' + file.trim() + '\n');
     }
   }
 
